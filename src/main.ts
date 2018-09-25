@@ -4,14 +4,15 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
-    .standardConfiguration()
-    .feature(PLATFORM.moduleName('resources/index'));
+    .standardConfiguration();
+  //  .feature(PLATFORM.moduleName('resources/index'));
 
   // Uncomment the line below to enable animation.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
@@ -28,5 +29,5 @@ export function configure(aurelia: Aurelia) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
 
-  return aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+  return aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('components/app/app')));
 }

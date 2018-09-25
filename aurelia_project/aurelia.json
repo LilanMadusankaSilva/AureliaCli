@@ -68,5 +68,23 @@
   "testFramework": {
     "id": "jasmine",
     "displayName": "Jasmine"
-  }
+  },
+  "dependencies": [
+    "jquery",
+    {
+      "name": "popper.js",
+      "path": "../node_modules/popper.js/dist/umd",
+      "main": "popper.min"
+    },
+    {
+      "name": "bootstrap",
+      "path": "../node_modules/bootstrap/dist",
+      "main": "js/bootstrap.min",
+      "deps": ["jquery"],
+      "exports": "$",
+      "resources": [
+        "css/bootstrap.css"
+      ]
+    }
+ ]
 }
